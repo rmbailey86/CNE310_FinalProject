@@ -33,12 +33,12 @@ def root():
     logged_in, first_name, no_of_items = get_login_details()
     with sqlite3.connect('database.db') as conn:
         cur = conn.cursor()
-        # Show last product added
+         #Show last product added
         cur.execute('SELECT productId, name, price, description, image, stock FROM products ORDER BY productId DESC LIMIT 1 ')
-        # Show all items
+         #Show all items
         cur.execute('SELECT productId, name, price, description, image, stock FROM products LIMIT 4')
         item_data = cur.fetchall()
-        # Show an error instead of the categories
+         #Show an error instead of the categories
         category_data = [(-1, "Error")]
         # Show all categories
         cur.execute('SELECT categoryId, name FROM categories')
